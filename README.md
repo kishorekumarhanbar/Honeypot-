@@ -1,12 +1,18 @@
 # Honeypot-
 This honeypot is designed to listen on all TCP and UDP ports. 
 It emulates the following services:  
-SSH (22/tcp) telnet (23/tcp) 
-SMTP (25/tcp) 
-HTTPS (443/tcp only) 
-HTTP GET and CONNECT (on every other tcp port) 
-SIP (5060/udp, with special support to detect sipvicious scans) 
-Netis factory backdoor 
+SSH (22/tcp) telnet (23/tcp).
+
+SMTP (25/tcp). 
+
+HTTPS (443/tcp only).
+
+HTTP GET and CONNECT (on every other tcp port).
+
+SIP (5060/udp, with special support to detect sipvicious scans).
+
+Netis factory backdoor.
+
 HTTP is autodetected by monitoring whether the first bytes sent by the client are either GET or CONNECT. In case of HTTP CONNECT requests, the emulated proxy always loops back to the honeypot itself.  
 Similarly, SSL/TLS is also autodetected by checking if the first bytes sent by the client look like the first bytes of the SSL Client Hello handshake message.  
 Any other unrecognized TCP connection or UDP packet is logged as-is in hexdump-like form.
